@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230320143801 extends AbstractMigration
+final class Version20230320162931 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20230320143801 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE station ADD roles JSON NOT NULL');
+        $this->addSql('ALTER TABLE station DROP password, DROP roles');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE station DROP roles');
+        $this->addSql('ALTER TABLE station ADD password VARCHAR(255) NOT NULL, ADD roles JSON NOT NULL');
     }
 }
