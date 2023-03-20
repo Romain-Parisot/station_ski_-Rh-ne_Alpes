@@ -29,7 +29,7 @@ class Piste
     private ?string $message = null;
 
     #[ORM\Column]
-    private ?bool $type = null;
+    private ?bool $isAlpin = null;
 
     #[ORM\Column]
     private ?bool $isClose = null;
@@ -98,14 +98,14 @@ class Piste
         return $this;
     }
 
-    public function isType(): ?bool
+    public function isIsAlpin(): ?bool
     {
-        return $this->type;
+        return $this->isAlpin;
     }
 
-    public function setType(bool $type): self
+    public function setIsAlpin(bool $type): self
     {
-        $this->type = $type;
+        $this->isAlpin = $type;
 
         return $this;
     }

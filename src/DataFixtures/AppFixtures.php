@@ -50,6 +50,7 @@ class AppFixtures extends Fixture
                 $stationlistdomainenumber = $stationlistdomainenumber + 1;
 
                 $manager->persist($station);
+<<<<<<< HEAD
             }
         }
             $manager->flush();
@@ -100,5 +101,10 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
 
+=======
+            }
+        }
+        $manager->flush();
+>>>>>>> 5592afe44fe15b0510267540a91dd457adcb9469
     }
 }
