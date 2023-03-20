@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Piste;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
@@ -23,6 +24,7 @@ class PisteCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            AssociationField::new('station'),
             TextField::new('name'),
             TextEditorField::new('message'),
             ChoiceField::new('level')->allowMultipleChoices(false),
@@ -31,5 +33,4 @@ class PisteCrudController extends AbstractCrudController
             BooleanField::new('isClose'),
         ];
     }
-
 }

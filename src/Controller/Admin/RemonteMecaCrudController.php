@@ -4,6 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\RemonteMeca;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class RemonteMecaCrudController extends AbstractCrudController
 {
@@ -12,14 +18,16 @@ class RemonteMecaCrudController extends AbstractCrudController
         return RemonteMeca::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            AssociationField::new('station'),
+            TextEditorField::new('message'),
+            //CodeEditorField::new('schedule'),
+            ChoiceField::new('type')->allowMultipleChoices(false),
+            BooleanField::new('isClose'),
         ];
     }
-    */
 }

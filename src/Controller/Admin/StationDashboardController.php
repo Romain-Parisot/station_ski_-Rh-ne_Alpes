@@ -43,7 +43,7 @@ class StationDashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Informations', 'fa fa-home');
         yield MenuItem::linkToCrud('Pistes', 'fas fa-list', Piste::class);
         yield MenuItem::linkToCrud('Remontées Mécaniques', 'fas fa-list', RemonteMeca::class);
     }
