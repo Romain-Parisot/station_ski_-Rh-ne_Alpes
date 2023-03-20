@@ -72,13 +72,10 @@
         }
     },
     "require-dev": {
-<<<<<<< HEAD
-        "doctrine/doctrine-fixtures-bundle": "^3.4"
-=======
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/debug-bundle": "6.2.*",
         "symfony/monolog-bundle": "^3.0",
         "symfony/stopwatch": "6.2.*",
         "symfony/web-profiler-bundle": "6.2.*"
->>>>>>> ebbabc7aef9c3597db5116a3bb6e8f32cacefcb7
     }
 }
