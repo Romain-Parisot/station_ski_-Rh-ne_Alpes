@@ -42,12 +42,9 @@ class AppFixtures extends Fixture
 
                 $stationlistdomainenumber=$stationlistdomainenumber+1;
 
-
+                $manager->persist($station);
             }
-
-
-
         }
-
+        $manager->flush();
     }
 }

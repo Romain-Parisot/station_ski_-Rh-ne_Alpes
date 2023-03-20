@@ -31,7 +31,7 @@ class RemonteMeca
     #[ORM\ManyToOne(inversedBy: 'remonteMecas')]
     private ?Station $station = null;
 
-    #[ORM\ManyToMany(targetEntity: piste::class, inversedBy: 'remonteMecas')]
+    #[ORM\ManyToMany(targetEntity: Piste::class, inversedBy: 'remonteMecas')]
     private Collection $pisteRemonte;
 
     public function __construct()
@@ -105,14 +105,14 @@ class RemonteMeca
     }
 
     /**
-     * @return Collection<int, piste>
+     * @return Collection<int, Piste>
      */
     public function getPisteRemonte(): Collection
     {
         return $this->pisteRemonte;
     }
 
-    public function addPisteRemonte(piste $pisteRemonte): self
+    public function addPisteRemonte(Piste $pisteRemonte): self
     {
         if (!$this->pisteRemonte->contains($pisteRemonte)) {
             $this->pisteRemonte->add($pisteRemonte);
@@ -121,7 +121,7 @@ class RemonteMeca
         return $this;
     }
 
-    public function removePisteRemonte(piste $pisteRemonte): self
+    public function removePisteRemonte(Piste $pisteRemonte): self
     {
         $this->pisteRemonte->removeElement($pisteRemonte);
 

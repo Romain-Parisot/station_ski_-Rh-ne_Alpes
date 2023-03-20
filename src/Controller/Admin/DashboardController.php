@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Domaine;
+use App\Entity\Piste;
+use App\Entity\RemonteMeca;
+use App\Entity\Station;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -20,7 +23,7 @@ class DashboardController extends AbstractDashboardController
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(DomaineCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(SuperAdminCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -42,7 +45,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('The Label', 'fas fa-list', Domaine::class);
+        yield MenuItem::linkToDashboard('Accounts', 'fa fa-home');
+        yield MenuItem::linkToCrud('Domaines', 'fas fa-list', Domaine::class);
+        yield MenuItem::linkToCrud('Stations', 'fas fa-list', Station::class);
+        yield MenuItem::linkToCrud('Pistes', 'fas fa-list', Piste::class);
+        yield MenuItem::linkToCrud('Remontées Mécaniques', 'fas fa-list', RemonteMeca::class);
     }
 }
