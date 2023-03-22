@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230322150526 extends AbstractMigration
+final class Version20230322145131 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,7 +26,6 @@ final class Version20230322150526 extends AbstractMigration
         $this->addSql('ALTER TABLE blog ADD CONSTRAINT FK_C015514321BDB235 FOREIGN KEY (station_id) REFERENCES station (id)');
         $this->addSql('ALTER TABLE event ADD CONSTRAINT FK_3BAE0AA721BDB235 FOREIGN KEY (station_id) REFERENCES station (id)');
         $this->addSql('ALTER TABLE information ADD CONSTRAINT FK_2979188321BDB235 FOREIGN KEY (station_id) REFERENCES station (id)');
-        $this->addSql('ALTER TABLE piste CHANGE type is_alpin TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema): void
@@ -38,6 +37,5 @@ final class Version20230322150526 extends AbstractMigration
         $this->addSql('DROP TABLE blog');
         $this->addSql('DROP TABLE event');
         $this->addSql('DROP TABLE information');
-        $this->addSql('ALTER TABLE piste CHANGE is_alpin type TINYINT(1) NOT NULL');
     }
 }
