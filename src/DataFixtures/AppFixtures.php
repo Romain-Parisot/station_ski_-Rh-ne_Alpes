@@ -52,7 +52,7 @@ class AppFixtures extends Fixture
                 $manager->persist($station);
             }
         }
-            $manager->flush();
+        $manager->flush();
 
 
         $stationRepo = $manager->getRepository(Station::class);
