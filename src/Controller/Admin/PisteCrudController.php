@@ -26,11 +26,18 @@ class PisteCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             AssociationField::new('station'),
             TextField::new('name'),
-            TextEditorField::new('message'),
-            ChoiceField::new('level')->allowMultipleChoices(false),
+            ChoiceField::new('level')
+                ->setChoices([
+                    'Verte' => 'verte',
+                    'Bleue' => 'bleue',
+                    'Rouge' => 'rouge',
+                    'Noire' => 'noire'
+                ])
+                ->allowMultipleChoices(false),
             //CodeEditorField::new('schedule'),
             BooleanField::new('isAlpin'),
             BooleanField::new('isClose'),
+            TextEditorField::new('message'),
         ];
     }
 }

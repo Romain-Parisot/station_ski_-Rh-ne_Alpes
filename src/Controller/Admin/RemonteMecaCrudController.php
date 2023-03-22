@@ -24,10 +24,18 @@ class RemonteMecaCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('station'),
-            TextEditorField::new('message'),
             //CodeEditorField::new('schedule'),
-            ChoiceField::new('type')->allowMultipleChoices(false),
+            ChoiceField::new('type')
+                ->setChoices([
+                    'Téléski' => 'téléski',
+                    'Télésiège' => 'télésiège',
+                    'Télécabine' => 'télécabine',
+                    'Tapis-roulant' => 'tapis-roulant',
+                    'Funiculaire' => 'funiculaire',
+                ])
+                ->allowMultipleChoices(false),
             BooleanField::new('isClose'),
+            TextEditorField::new('message'),
         ];
     }
 }

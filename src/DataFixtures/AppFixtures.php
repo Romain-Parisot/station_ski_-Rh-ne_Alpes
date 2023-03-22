@@ -52,7 +52,7 @@ class AppFixtures extends Fixture
                 $manager->persist($station);
             }
         }
-            $manager->flush();
+        $manager->flush();
 
 
         $stationRepo = $manager->getRepository(Station::class);
@@ -66,10 +66,10 @@ class AppFixtures extends Fixture
 
                 $piste->setMessage($pistelistmsg[$pistelistnumber]);
                 if ($pistelistnumber==17){
-                    $piste->setIsAlpin(false);
+                    $piste->setIsAlpin(true);
                 }
                 else{
-                    $piste->setIsAlpin(true);
+                    $piste->setIsAlpin(false);
                 }
                 $piste->setIsClose(0);
 

@@ -34,10 +34,22 @@ class Station
     #[ORM\OneToMany(mappedBy: 'station', targetEntity: RemonteMeca::class)]
     private Collection $remonteMecas;
 
+    #[ORM\OneToMany(mappedBy: 'station', targetEntity: Event::class)]
+    private Collection $events;
+
+    #[ORM\OneToMany(mappedBy: 'station', targetEntity: Blog::class)]
+    private Collection $blogs;
+
+    #[ORM\OneToMany(mappedBy: 'station', targetEntity: Information::class)]
+    private Collection $information;
+
     public function __construct()
     {
         $this->pistes = new ArrayCollection();
         $this->remonteMecas = new ArrayCollection();
+        $this->events = new ArrayCollection();
+        $this->blogs = new ArrayCollection();
+        $this->information = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,5 +168,95 @@ class Station
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setStation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getStation() === $this) {
+                $event->setStation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Blog>
+     */
+    public function getBlogs(): Collection
+    {
+        return $this->blogs;
+    }
+
+    public function addBlog(Blog $blog): self
+    {
+        if (!$this->blogs->contains($blog)) {
+            $this->blogs->add($blog);
+            $blog->setStation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlog(Blog $blog): self
+    {
+        if ($this->blogs->removeElement($blog)) {
+            // set the owning side to null (unless already changed)
+            if ($blog->getStation() === $this) {
+                $blog->setStation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Information>
+     */
+    public function getInformation(): Collection
+    {
+        return $this->information;
+    }
+
+    public function addInformation(Information $information): self
+    {
+        if (!$this->information->contains($information)) {
+            $this->information->add($information);
+            $information->setStation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInformation(Information $information): self
+    {
+        if ($this->information->removeElement($information)) {
+            // set the owning side to null (unless already changed)
+            if ($information->getStation() === $this) {
+                $information->setStation(null);
+            }
+        }
+
+        return $this;
     }
 }
