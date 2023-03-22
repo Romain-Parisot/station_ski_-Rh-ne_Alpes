@@ -8,3 +8,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+public/uploads/domaine
+!public/uploads/domaine/.gitkeep
+public/uploads/station
+!public/uploads/station/.gitkeep

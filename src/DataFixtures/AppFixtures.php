@@ -66,10 +66,10 @@ class AppFixtures extends Fixture
 
                 $piste->setMessage($pistelistmsg[$pistelistnumber]);
                 if ($pistelistnumber==17){
-                    $piste->setType(0);
+                    $piste->setIsAlpin(true);
                 }
                 else{
-                    $piste->setType(1);
+                    $piste->setIsAlpin(false);
                 }
                 $piste->setIsClose(0);
 

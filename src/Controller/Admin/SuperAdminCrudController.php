@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\SuperAdmin;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class SuperAdminCrudController extends AbstractCrudController
 {
@@ -12,14 +15,15 @@ class SuperAdminCrudController extends AbstractCrudController
         return SuperAdmin::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('username'),
+            ChoiceField::new('roles')->allowMultipleChoices(),
+            TextField::new('password')->hideOnIndex(),
         ];
     }
-    */
+
 }
