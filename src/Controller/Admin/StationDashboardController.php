@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Blog;
+use App\Entity\Event;
+use App\Entity\Information;
 use App\Entity\Piste;
 use App\Entity\RemonteMeca;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -43,7 +46,10 @@ class StationDashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Informations', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
+        yield MenuItem::linkToCrud('Informations', 'fas fa-list', Information::class);
+        yield MenuItem::linkToCrud('Evenements', 'fas fa-list', Event::class);
+        yield MenuItem::linkToCrud('Blog', 'fas fa-list', Blog::class);
         yield MenuItem::linkToCrud('Pistes', 'fas fa-list', Piste::class);
         yield MenuItem::linkToCrud('Remontées Mécaniques', 'fas fa-list', RemonteMeca::class);
     }
