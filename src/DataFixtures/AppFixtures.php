@@ -3,9 +3,11 @@
 namespace App\DataFixtures;
 
 use App\Entity\Domaine;
+use App\Entity\Event;
 use App\Entity\Piste;
 use App\Entity\RemonteMeca;
 use App\Entity\Station;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -99,5 +101,6 @@ class AppFixtures extends Fixture
             }
         }
         $manager->flush();
+        
     }
 }
