@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\RemonteMeca;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -24,7 +25,7 @@ class RemonteMecaCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('station'),
-            //CodeEditorField::new('schedule'),
+            ArrayField::new('schedule'),
             ChoiceField::new('type')
                 ->setChoices([
                     'Téléski' => 'téléski',

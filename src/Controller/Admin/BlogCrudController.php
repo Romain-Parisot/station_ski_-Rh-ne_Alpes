@@ -2,23 +2,23 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Piste;
+use App\Entity\Blog;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
 
-class PisteCrudController extends AbstractCrudController
+class BlogCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Piste::class;
+        return Blog::class;
     }
 
 
@@ -27,19 +27,13 @@ class PisteCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('station'),
-            TextField::new('name'),
-            ChoiceField::new('level')
-                ->setChoices([
-                    'Verte' => 'verte',
-                    'Bleue' => 'bleue',
-                    'Rouge' => 'rouge',
-                    'Noire' => 'noire'
-                ])
-                ->allowMultipleChoices(false),
-            ArrayField::new('schedule'),
-            BooleanField::new('isAlpin'),
-            BooleanField::new('isClose'),
-            TextEditorField::new('message'),
+            TextField::new('title'),
+            ImageField::new('image')
+                ->setUploadDir('public/uploads/blog')
+                ->setBasePath('uploads/blog')
+                ->setUploadedFileNamePattern('[slug]-[randomhash].[extension]'),
+            TextEditorField::new('description'),
         ];
     }
+
 }
