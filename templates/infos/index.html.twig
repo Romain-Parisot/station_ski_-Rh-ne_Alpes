@@ -4,17 +4,7 @@
 
 {% block body %}
 
-    <div class="infos_nav">
-        <nav>
-            <p>logo</p>
-            <div>
-                <p>station</p>
-                <p>domaine</p>
-            </div>
-        </nav>
-
-        <h3>Infos</h3>
-    </div>
+    {% include 'partial/header.html.twig' %}
 
     <ul>
         {% for info in infos %}
@@ -28,4 +18,7 @@
             </div>
         {% endfor %}
     </ul>
+
+    {% include 'partial/footer.html.twig' %}
+
 {% endblock %}

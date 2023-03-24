@@ -4,31 +4,7 @@
 
 {% block body %}
 
-    <nav class="home_nav">
-        <img src="" alt="logo site">
-        <ul>
-            <li>
-                <a href="/">
-                    <button>Accueil</button>
-                </a>
-            </li>
-            <li>
-                <a href="/domaine">
-                    <button>Domaine</button>
-                </a>
-            </li>
-            <li>
-                <a href="/station">
-                    <button>Station</button>
-                </a>
-            </li>
-            <li>
-                <a href="/piste">
-                    <button>Pistes</button>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {% include 'partial/header.html.twig' %}
 
     <section class="home_research">
         <div class="home_research-setting">
@@ -77,9 +53,6 @@
         </div>
     </section>
 
-    <footer>
-        <p>contact us</p>
-        <img src="{{ asset('assets/img/footer-map.png') }}" alt="">
-    </footer>
+    {% include 'partial/footer.html.twig' %}
 
 {% endblock %}

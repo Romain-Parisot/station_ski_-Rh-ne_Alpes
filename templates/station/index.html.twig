@@ -6,6 +6,9 @@
     {# <a href="{{ path('app_home') }}">
         Retour vers les domaines
     </a> #}
+
+    {% include 'partial/header.html.twig' %}
+
     <div class="station_parent">
         <img src="../uploads/station/{{ station.logo }}" alt="Image d'ullustartion de la station {{ station.name }}" class="img_home_station">
         <div class="station_name_parent">
@@ -52,4 +55,7 @@
 
         </div>
     </div>
+
+    {% include 'partial/footer.html.twig' %}
+
 {% endblock %}

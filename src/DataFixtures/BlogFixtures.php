@@ -54,7 +54,7 @@ Le Bleu du Vercors-Sassenage est un fromage à pâte persillée, fabriqué à pa
             $blog->setStation($allstation[$randKey]);
             $blog->setTitle($titlebloglist[$i-1]);
             $blog->setDescription($descbloglist[$i-1]);
-            $blog->setImage($urlbloglist[$i-1]);
+            $blog->setImage('blog.png');
 
             $manager->persist($blog);
         }

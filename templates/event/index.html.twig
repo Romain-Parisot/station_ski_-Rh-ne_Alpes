@@ -3,18 +3,8 @@
 {% block title %}Hello EventController!{% endblock %}
 
 {% block body %}
-    
-    <div class="event_nav">
-        <nav>
-            <p>logo</p>
-            <div>
-                <p>station</p>
-                <p>domaine</p>
-            </div>
-        </nav>
 
-        <h3>Event</h3>
-    </div>
+    {% include 'partial/header.html.twig' %}
 
     <ul>
         {% for event in events %}
@@ -29,4 +19,6 @@
             </div>
         {% endfor %}
     </ul>
+
+    {% include 'partial/footer.html.twig' %}
 {% endblock %}
