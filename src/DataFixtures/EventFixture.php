@@ -155,7 +155,7 @@ Nous vous encourageons à réserver dès maintenant votre place pour cette visit
 
             $event->setDescription($eventDesc[$a]);
 
-            $event->setImage('image de '. $allEvent[$a]);
+            $event->setImage('https://www.detoursenfrance.fr/sites/art-de-vivre/files/det_val_disere-00018617_val_disere_tourisme.jpg');
 
             $event->setDate($date);
 

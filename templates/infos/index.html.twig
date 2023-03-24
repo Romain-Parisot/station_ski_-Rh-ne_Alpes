@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InfosController!{% endblock %}
+
+{% block body %}
+
+    <div class="infos_nav">
+        <nav>
+            <p>logo</p>
+            <div>
+                <p>station</p>
+                <p>domaine</p>
+            </div>
+        </nav>
+
+        <h3>Infos</h3>
+    </div>
+
+    <ul>
+        {% for info in infos %}
+            <div class="info_info">
+                <img src="{{ info.image }}" alt="{{ info.title }}">
+                <li>
+                    <h2>{{ info.title }}</h2>
+                    <p>{{ info.description }}</p>
+                    <p>Lieu: {{ info.station.name }}</p>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}

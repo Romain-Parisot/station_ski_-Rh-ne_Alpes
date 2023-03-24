@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventController!{% endblock %}
+
+{% block body %}
+    
+    <div class="event_nav">
+        <nav>
+            <p>logo</p>
+            <div>
+                <p>station</p>
+                <p>domaine</p>
+            </div>
+        </nav>
+
+        <h3>Event</h3>
+    </div>
+
+    <ul>
+        {% for event in events %}
+            <div class="event_event">
+                <img src="{{ event.image }}" alt="{{ event.title }}">
+                <li>
+                    <h2>{{ event.title }}</h2>
+                    <p>{{ event.description }}</p>
+                    <p>Date : {{ event.date|date('d/m/Y') }}</p>
+                    <p>Lieu: {{ event.station.name }}</p>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
