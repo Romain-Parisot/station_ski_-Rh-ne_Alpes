@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stations{% endblock %}
+
+{% block body %}
+    {# <a href="{{ path('app_home') }}">
+        Retour vers les domaines
+    </a> #}
+    <div class="station">
+        <img src="../uploads/station/{{ station.logo }}" alt="Image d'ullustartion de la station {{ station.name }}">
+        <p>{{ station.name }}</p>
+        <p>{{ station.description }} €</p>
+    </div>
+{% endblock %}
