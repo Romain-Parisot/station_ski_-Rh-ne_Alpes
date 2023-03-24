@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PisteController!{% endblock %}
+
+{% block body %}
+
+    <section >
+        <h1>Les pistes</h1>
+    </section>
+
+    <section >
+        {% for pistes in piste %}
+            <div>
+                <div>
+                    <h2>{{ pistes.station }}</h2>
+                    <p>{{ pistes.name }} </p>
+                    <p>{{ pistes.message }} </p>
+                    <hr>
+{#                    <a href="{{path({'id': piste.id})}}">#}
+{#                    </a>#}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
