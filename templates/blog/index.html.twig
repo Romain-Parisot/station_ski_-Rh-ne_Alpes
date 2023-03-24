@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+
+    <div class="blog_nav">
+        <nav>
+            <p>logo</p>
+            <div>
+                <p>station</p>
+                <p>domaine</p>
+            </div>
+        </nav>
+
+        <h3>Blog</h3>
+    </div>
+
+    <ul>
+        {% for blog in blog_item %}
+            <div class="blog_items">
+                <img src="{{ blog.image }}" alt="{{ blog.title }}">
+                <li>
+                    <h2>{{ blog.title }}</h2>
+                    <p>{{ blog.description }}</p>
+                    <p>Lieu: {{ blog.station.name }}</p>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
