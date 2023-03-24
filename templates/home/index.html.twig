@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {% for domaine in domaines %}
+        <p>{{ domaine.name }}</p>
+        <img src="../uploads/domaine/{{ domaine.logo }}" alt="">
+    {% endfor %}
+
+{% endblock %}
