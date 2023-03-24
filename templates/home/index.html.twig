@@ -1,12 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Rhone-Alpes Ski - Home{% endblock %}
 
 {% block body %}
 
-    {% for domaine in domaines %}
-        <p>{{ domaine.name }}</p>
-        <img src="../uploads/domaine/{{ domaine.logo }}" alt="">
-    {% endfor %}
+    <nav class="home_nav">
+        <img src="" alt="logo site">
+        <ul>
+            <li>
+                <a href="/">
+                    <button>Accueil</button>
+                </a>
+            </li>
+            <li>
+                <a href="/domaine">
+                    <button>Domaine</button>
+                </a>
+            </li>
+            <li>
+                <a href="/station">
+                    <button>Station</button>
+                </a>
+            </li>
+            <li>
+                <a href="/piste">
+                    <button>Pistes</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="home_research">
+        <div class="home_research-setting">
+            <div class="home_research-data">
+                <select name="type">
+                    <option value="AR">Aller-Retour</option>
+                    <option value="A">Aller simple</option>
+                    <option value="R">Retour simple</option>
+                </select>
+                <img src="{{ asset('assets/img/user.webp') }}" alt="Personne(s)">
+                <select name="number">
+                    <option value="1">1</option>
+                    {% for i in 2..10 %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                    <option value="custom">X</option>
+                </select>
+            </div>
+
+            <div class="home_research-preview">
+                <div class="home_research-where">
+                    <button>Point de départ</button>
+                    <button>Point d'arrivée (Domaine)</button>
+                </div>
+                <div class="home_research-when">
+                    <button left>Date départ</button>
+                    <button right>Date retour</button>
+                </div>
+            </div>
+
+            <button class="home_research-button">Recherche</button>
+        </div>
+
+        <div class="home_research-display">
+            <p>Suggestion de destionation depuis (Zone départ)</p>
+            <div class="home_research-collumn">
+                <div class="home_research-collumn-result">
+                    {% for domaine in domaines %}
+                        <img src="../uploads/domaine/{{ domaine.logo }}" alt="{{ domaine.name }}">
+                    {% endfor %}
+                </div>
+                <div class="home_research-collumn-map">
+                    <img src="{{ asset('assets/img/map-research.png') }}" alt="map">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>contact us</p>
+        <img src="{{ asset('assets/img/footer-map.png') }}" alt="">
+    </footer>
 
 {% endblock %}
