@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    overflow-x: hidden ;
+}
+.img_home_station{
+    width: 100vw;
+    height: 70vh;
+}
+.station_parent{
+
+}
+.station_name_parent{
+    position: absolute;
+    margin-top: -150px;
+    margin-left: 100px;
+    background-color: #d0e9ee;
+    padding: 40px;
+    width: 600px;
+    height: 300px;
+}
+.station_name{
+    padding: 30px;
+    font-size: 30px;
+}
+.station_description{
+    font-size: 18px;
+}
+.illustration_skieur_parent{
+    position: absolute;
+    right: 100px;
+    margin-top: 100px;
+}
+.liste_piste_station_parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 400px;
+    margin-bottom: 200px;
+    gap: 40px;
+}
+.Liste_piste_station{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #d0e9ee;
+    border-radius: 20px;
+    width: 70vw;
+}
+.image_illustration_piste{
+    width: 50%;
+}
+.part_G_Liste_piste_station{
+    width: 50vw;
+}
+.liste_piste_name{
+    color: #0F2161;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.link_to_piste{
+    text-decoration: none;
+}
+.liste_piste_desc{
+    color: black;
+}
