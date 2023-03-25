@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu';
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    width: 360px;
+    height: 400px;
+    margin: 8% auto;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem #a0b6ff;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #5e5e5e;
+}
+
+.container form{
+    width: 280px;
+    position: absolute;
+    top: 110px;
+    left: 40px;
+}
+
+form input{
+    width: 100%;
+    padding: 10px 5px;
+    margin: 15px 0;
+    border: 0;
+    /* border-bottom: 1px solid #999; */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    /* background: #8fc3ff; */
+    box-shadow: 0 .5rem 1rem #a0b6ff;
+}
+
+::placeholder{
+    color: #676767;
+}
+
+.btn-box{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form button{
+    width: 110px;
+    height: 35px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    font-weight: bolder;
+    background: rgba(217, 217, 217, 0.5);
+    border: 1px solid rgba(217, 217, 217, 0.5);
+    box-shadow: 0 .5rem 1rem #a0b6ff;
+    border-radius: 21px;
+
+}
+
+.step-row{
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    background: #fdfdfd;
+    box-shadow: 0 .5rem 1rem #a0b6ff;
+}
+
