@@ -6,14 +6,24 @@
 
     {% include 'partial/header.html.twig' %}
 
+    <h1 class="infos_title">Infos</h1>
+
     <ul>
         {% for info in infos %}
             <div class="info_info">
                 <img src="{{ info.image }}" alt="{{ info.title }}">
                 <li>
-                    <h2>{{ info.title }}</h2>
-                    <p>{{ info.description }}</p>
-                    <p>Lieu: {{ info.station.name }}</p>
+                    <h2>
+                        <a href="{{ path('app_infos_show', {'id':info.id}) }}">
+                            {{ info.title }}
+                        </a>
+                    </h2>
+                    <p>{{ info.description | slice(0,800) }} ....</p>
+                    <p>
+                        <a href="{{ path('app_station', {'id': info.station.id}) }}">
+                            Lieu : {{ info.station.name }}
+                        </a>
+                    </p>
                 </li>
             </div>
         {% endfor %}
