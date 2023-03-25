@@ -3,9 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\SuperAdmin;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FilterCollection;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
@@ -40,6 +42,36 @@ class SuperAdminCrudController extends AbstractCrudController
     }
 
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
+    {
+        $qb = $this->get(CrudUrlGenerator::class)->build()->getQuery()->getQueryBuilder();
+        $qb = $this->modifyQueryBuilderForRole($qb);
+
+        return $qb;
+    }
+
+    public function createNewEntity()
+    {
+        $admindashboard = new Dashboard();
+        $admindashboard = $this->modifyEntityForRole($admindashboard);
+
+        return $admindashboard;
+    }
+
+    public function updateEntity(EntityDto|EntityManagerInterface $entityDto, $entityInstance)
+    {
+        $entityInstance = $this->modifyEntityForRole($entityInstance);
+
+        parent::updateEntity($entityDto, $entityInstance);
+    }
+
+    public function deleteEntity(EntityDto|EntityManagerInterface $entityDto, $entityInstance)
+    {
+        $entityInstance = $this->modifyEntityForRole($entityInstance);
+
+        parent::deleteEntity($entityDto, $entityInstance);
+    }
+
+    private function modifyQueryBuilderForRole(QueryBuilder $qb): QueryBuilder
     {
         $user = $this->getUser();
         $role = $this->getRoles()[0];
@@ -76,6 +108,37 @@ class SuperAdminCrudController extends AbstractCrudController
                 break;
         }
         return $qb;
+    }
+
+    private function modifyEntityForRole(Dashboard $admindashboard): Dashboard
+    {
+        $user = $this->getUser();
+        $role = $this->getRoles()[0];
+
+        switch ($role) {
+            case 'ROLE_SUPER_ADMIN':
+                // Ici le super admin
+                break;
+            case 'ROLE_ADMIN_MON':
+                $admindashboard->setAdmin('ROLE_ADMIN_MON');
+                break;
+            case 'ROLE_ADMIN_VEN':
+                $admindashboard->setAdmin('ROLE_ADMIN_VEN');
+                break;
+            case 'ROLE_ADMIN_TIG':
+                $admindashboard->setAdmin('ROLE_ADMIN_TIG');
+                break;
+            case 'ROLE_ADMIN_VAL':
+                $admindashboard->setAdmin('ROLE_ADMIN_VAL');
+                break;
+            case 'ROLE_ADMIN_LEG':
+                $admindashboard->setAdmin('ROLE_ADMIN_LEG');
+                break;
+            case 'ROLE_ADMIN_MAN':
+                $admindashboard->setAdmin('ROLE_ADMIN_MAN');
+                break;
+        }
+        return $admindashboard;
     }
 
     public function configureFields(string $pageName): iterable
