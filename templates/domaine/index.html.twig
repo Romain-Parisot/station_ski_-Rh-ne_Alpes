@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DomaineController!{% endblock %}
+
+{% block body %}
+    <section >
+        <h1>Tous les Domaine</h1>
+    </section>
+
+    <section >
+        {% for domaines in domaine %}
+            <div>
+                <a class="link_to_piste" href="/station/{{ domaines.id }}">
+                <div>
+                    <h2>{{ domaines.name }}</h2>
+                    <img src="../uploads/domaine/{{ domaines.logo }}" alt="Image de la Domaine {{ domaines.name }}" class="img_domaine">
+                    <p>{{ domaines.description }} </p>
+                    <hr>
+                </div>
+                </a>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
