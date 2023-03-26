@@ -8,55 +8,57 @@
     </a> #}
 
     {% include 'partial/header.html.twig' %}
+    <a href="{{ path('app_domaine') }}">Retour vers domaines</a>
+    {% for station in stations %}
+        <div class="station_parent">
+            <img src="../uploads/station/{{ station.logo }}" alt="Image d'ullustartion de la station {{ station.name }}" class="img_home_station">
+            <div class="station_name_parent">
+                <h2 class="station_name">La Station : {{ station.name }}</h2>
+                <p class="station_description">{{ station.description }} €</p>
+            </div>
+            <div class="illustration_skieur_parent">
+                <img src="{{ asset('assets/images/image1.png') }}" alt="illustration skieur">
+            </div>
 
-    <div class="station_parent">
-        <img src="../uploads/station/{{ station.logo }}" alt="Image d'ullustartion de la station {{ station.name }}" class="img_home_station">
-        <div class="station_name_parent">
-            <h2 class="station_name">La Station : {{ station.name }}</h2>
-            <p class="station_description">{{ station.description }} €</p>
-        </div>
-        <div class="illustration_skieur_parent">
-            <img src="{{ asset('assets/images/image1.png') }}" alt="illustration skieur">
-        </div>
 
-
-        <div class="liste_piste_station_parent">
-            <h2>Les meilleurs piste de cette station : </h2>
-            {% set side = 'right' %}
-            {% for pistes in piste %}
-                {% if pistes.station == station.name %}
-                    {% if side == 'left' %}
-                        {% set side = 'right' %}
-                        <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
-                            <div class="Liste_piste_station">
-                                <div class="part_G_Liste_piste_station">
-                                    <p class="liste_piste_name">{{ pistes.name }} </p>
-                                    <p class="liste_piste_desc">{{ pistes.message }} </p>
+            <div class="liste_piste_station_parent">
+                <h2>Les meilleurs piste de cette station : </h2>
+                {% set side = 'right' %}
+                {% for pistes in piste %}
+                    {% if pistes.station == station.name %}
+                        {% if side == 'left' %}
+                            {% set side = 'right' %}
+                            <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
+                                <div class="Liste_piste_station">
+                                    <div class="part_G_Liste_piste_station">
+                                        <p class="liste_piste_name">{{ pistes.name }} </p>
+                                        <p class="liste_piste_desc">{{ pistes.message }} </p>
+                                    </div>
+                                    <div>
+                                        <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
+                                    </div>
                                 </div>
-                                <div>
-                                    <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
+                            </a>
+                        {% elseif side == 'right' %}
+                            {% set side = 'left' %}
+                            <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
+                                <div class="Liste_piste_station">
+                                    <div>
+                                        <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
+                                    </div>
+                                    <div class="part_G_Liste_piste_station">
+                                        <p class="liste_piste_name">{{ pistes.name }} </p>
+                                        <p class="liste_piste_desc">{{ pistes.message }} </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    {% elseif side == 'right' %}
-                        {% set side = 'left' %}
-                        <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
-                            <div class="Liste_piste_station">
-                                <div>
-                                    <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
-                                </div>
-                                <div class="part_G_Liste_piste_station">
-                                    <p class="liste_piste_name">{{ pistes.name }} </p>
-                                    <p class="liste_piste_desc">{{ pistes.message }} </p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
 
+            </div>
         </div>
-    </div>
+    {% endfor %}
 
     {% include 'partial/footer.html.twig' %}
 
