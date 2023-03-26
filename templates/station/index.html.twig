@@ -9,30 +9,18 @@
 
     {% include 'partial/header.html.twig' %}
     <a href="{{ path('app_domaine') }}">Retour vers domaines</a>
-<<<<<<< HEAD
     {% for stations in station %}
         <div class="station_parent">
             <img src="../uploads/station/{{ stations.logo }}" alt="Image d'ullustartion de la station {{ stations.name }}" class="img_home_station">
             <div class="station_name_parent">
                 <h2 class="station_name">La Station : {{ stations.name }}</h2>
                 <p class="station_description">{{ stations.description }}</p>
-=======
-
-    <h1 style="margin-top: 2em">{{ domaine.name }}</h1>
-    {% for station in stations %}
-        <div class="station_parent">
-            <img src="../uploads/station/{{ station.logo }}" alt="Image d'ullustartion de la station {{ station.name }}" class="img_home_station">
-            <div class="station_name_parent">
-                <h2 class="station_name">La Station : {{ station.name }}</h2>
-                <p class="station_description">{{ station.description | striptags }} €</p>
->>>>>>> 8b8033a28a7db34838067938c66891412044f6c3
             </div>
             <div class="illustration_skieur_parent">
                 <img src="{{ asset('assets/images/image1.png') }}" alt="illustration skieur">
             </div>
 
 
-<<<<<<< HEAD
                 <h2 class="remontemeca_title">Les Remonte meca de cette station : </h2>
                 {% for rmtmeca in remontemeca %}
                     {% if rmtmeca.station == stations.name %}
@@ -86,43 +74,6 @@
                     {% endif %}
                 {% endfor %}
 
-=======
-            <div class="liste_piste_station_parent">
-                <h2>Les meilleurs piste de cette station : </h2>
-                {% set side = 'right' %}
-                {% for pistes in piste %}
-                    {% if pistes.station == station.name %}
-                        {% if side == 'left' %}
-                            {% set side = 'right' %}
-                            <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
-                                <div class="Liste_piste_station">
-                                    <div class="part_G_Liste_piste_station">
-                                        <p class="liste_piste_name">{{ pistes.name }} </p>
-                                        <p class="liste_piste_desc">{{ pistes.message | striptags }} </p>
-                                    </div>
-                                    <div>
-                                        <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
-                                    </div>
-                                </div>
-                            </a>
-                        {% elseif side == 'right' %}
-                            {% set side = 'left' %}
-                            <a class="link_to_piste" href="/piste_page/{{ pistes.id }}">
-                                <div class="Liste_piste_station">
-                                    <div>
-                                        <img class="image_illustration_piste" src="{{ asset('assets/images/image_illustration_piste.png') }}" alt="image illustration piste">
-                                    </div>
-                                    <div class="part_G_Liste_piste_station">
-                                        <p class="liste_piste_name">{{ pistes.name }} </p>
-                                        <p class="liste_piste_desc">{{ pistes.message | striptags }} </p>
-                                    </div>
-                                </div>
-                            </a>
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-
->>>>>>> 8b8033a28a7db34838067938c66891412044f6c3
             </div>
         </div>
     {% endfor %}
