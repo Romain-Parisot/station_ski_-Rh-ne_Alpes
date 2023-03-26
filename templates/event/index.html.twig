@@ -11,14 +11,14 @@
     <ul>
         {% for event in events %}
             <div class="event_event">
-                <img src="{{ event.image }}" alt="{{ event.title }}">
+                <img src=../uploads/event/{{ event.image}} alt="{{ event.title }}">
                 <li>
                     <h2>
                         <a href="{{ path('app_event_show', {'id':event.id}) }}">
                             {{ event.title }}
                         </a>
                     </h2>
-                    <p>{{ event.description | slice(0,800) }} ....</p>
+                    <p>{{ event.description | striptags | slice(0,800) }} ....</p>
                     <p>Date : {{ event.date|date('d/m/Y') }}</p>
                     <p>
                         <a href="{{ path('app_station', {'id': event.station.id}) }}">
