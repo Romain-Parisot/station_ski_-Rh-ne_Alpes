@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RemonteMecaController!{% endblock %}
+
+{% block body %}
+    {% include 'partial/header.html.twig' %}
+
+    <section class="piste" >
+        <img class="image_remontemeca" src="{{ asset('assets/images/remontemeca2.jpg') }}" alt="image illustration piste">
+        <div class="content">
+            <h1>{{ remontemeca.type }} </h1>
+            {% for horaire in remontemeca.schedule %}
+                <p>{{ horaire }}</p>
+            {% endfor %}
+            {% if remontemeca.isClose == 1 %}
+                <p>Remonte_meca : Close</p>
+            {% else %}
+                <p> Remonte_meca : Open</p>
+            {% endif %}
+
+            <p class="station">{{ remontemeca.station }}</p>
+            <h2>Message</h2>
+            <p>{{  remontemeca.message | striptags }}</p>
+        </div>
+    </section>
+
+    {% include 'partial/footer.html.twig' %}
+{% endblock %}

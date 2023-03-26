@@ -14,18 +14,19 @@
 
     <h1 class="domaine_title">Tous les Domaine</h1>
 
+
     <ul>
         {% for domaines in domaine %}
             <div class="domaine_content">
                 <li>
                     <a class="link_to_piste" href="/station/{{ domaines.id }}">
-                            <h2>{{ domaines.name }}</h2>
-                            <p>{{ domaines.description | striptags }} </p>
-                            <hr>
+                        <h2>{{ domaines.name }}</h2>
+                        <p>{{ domaines.description | striptags }} </p>
+                        <hr>
                     </a>
                 </li>
                 <a class="link_to_piste" href="/station/{{ domaines.id }}">
-                     <img src="../uploads/domaine/{{ domaines.logo }}" alt="Image de la Domaine {{ domaines.name }}" class="img_domaine">
+                    <img src="../uploads/domaine/{{ domaines.logo }}" alt="Image du Domaine {{ domaines.name }}" class="img_domaine">
                 </a>
 
             </div>
