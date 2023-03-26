@@ -3,23 +3,36 @@
 {% block title %}Hello DomaineController!{% endblock %}
 
 {% block body %}
-    <section >
-        <h1>Tous les Domaine</h1>
+
+    {% include 'partial/header.html.twig' %}
+
+    <section class="home">
+        <div class="home_content">
+            <h1>Rhône-Alpes Domaine</h1>
+        </div>
     </section>
 
-    <section >
+    <h1 class="domaine_title">Tous les Domaine</h1>
+
+    <ul>
         {% for domaines in domaine %}
-            <div>
+            <div class="domaine_content">
+                <li>
+                    <a class="link_to_piste" href="/station/{{ domaines.id }}">
+                            <h2>{{ domaines.name }}</h2>
+                            <p>{{ domaines.description | striptags }} </p>
+                            <hr>
+                    </a>
+                </li>
                 <a class="link_to_piste" href="/station/{{ domaines.id }}">
-                <div>
-                    <h2>{{ domaines.name }}</h2>
-                    <img src="../uploads/domaine/{{ domaines.logo }}" alt="Image de la Domaine {{ domaines.name }}" class="img_domaine">
-                    <p>{{ domaines.description }} </p>
-                    <hr>
-                </div>
+                     <img src="../uploads/domaine/{{ domaines.logo }}" alt="Image de la Domaine {{ domaines.name }}" class="img_domaine">
                 </a>
+
             </div>
         {% endfor %}
-    </section>
+    </ul>
+
+    {% include 'partial/footer.html.twig' %}
+
 
 {% endblock %}
