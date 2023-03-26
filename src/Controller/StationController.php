@@ -30,7 +30,8 @@ class StationController extends AbstractController
 
         return $this->render('station/index.html.twig', [
             'stations' => $station,
-            'piste' => $pisteRepository->findAll()
+            'piste' => $pisteRepository->findAll(),
+            'domaine' => $domaine
         ]);
     }
 }

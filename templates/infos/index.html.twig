@@ -11,14 +11,14 @@
     <ul>
         {% for info in infos %}
             <div class="info_info">
-                <img src="{{ info.image }}" alt="{{ info.title }}">
+                <img src="../uploads/info/{{ info.image }}" alt="{{ info.title }}">
                 <li>
                     <h2>
                         <a href="{{ path('app_infos_show', {'id':info.id}) }}">
                             {{ info.title }}
                         </a>
                     </h2>
-                    <p>{{ info.description | slice(0,800) }} ....</p>
+                    <p>{{ info.description | striptags | slice(0,800) }} ....</p>
                     <p>
                         <a href="{{ path('app_station', {'id': info.station.id}) }}">
                             Lieu : {{ info.station.name }}

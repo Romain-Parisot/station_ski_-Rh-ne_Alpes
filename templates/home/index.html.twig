@@ -43,7 +43,10 @@
             <div class="home_research-collumn">
                 <div class="home_research-collumn-result">
                     {% for domaine in domaines %}
-                        <img src="../uploads/domaine/{{ domaine.logo }}" alt="{{ domaine.name }}">
+                        <h2>{{ domaine.name }}</h2>
+                        <a href="{{ path('app_station', {'id': domaine.id }) }}">
+                            <img src="../uploads/domaine/{{ domaine.logo }}" alt="{{ domaine.name }}">
+                        </a>
                     {% endfor %}
                 </div>
                 <div class="home_research-collumn-map">
